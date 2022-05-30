@@ -1,0 +1,7 @@
+• Adding a namespace allows to define resources/pods in a namespace and hard limits can be used to 'resource quota'.
+• A Daemonset will not run more than one replica per node. Another advantage of using a Daemonset is that, if you add a node to the cluster, then the Daemonset will automatically spawn a pod on that node, which a deployment will not do.
+
+• ClusterIP. Exposes a service which is only accessible from within the cluster.
+• NodePort. Exposes a service via a static port on each node’s IP.
+• LoadBalancer. Exposes the service via the cloud provider’s load balancer.
+ExternalName. Maps a service to a predefined externalName field by returning a value for the CNAME record.

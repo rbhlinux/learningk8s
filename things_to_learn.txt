@@ -1,0 +1,6 @@
+Git
+Terraform
+Jenkins
+Kubernetes
+AzureDevOps
+MySQL/MongoDB

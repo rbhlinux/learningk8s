@@ -1,0 +1,31 @@
+#1 it helps to specify the 'apiVersion' and 'kind' in manifests
+
+-> kubectl api-resources
+
+#2 If service is not have External IP, this is the way to have it get one
+-> kubectl patch svc sa-frontend-lb -p '{"spec":{"externalIPs":["20.118.32.54"]}}'
+  #For testing the same thing before doing the actual patch
+-> kubectl port-forward --address 0.0.0.0 service/nginx-service 80:80
+
+
+##################################################### AKS WITH TERRAFORM Course
+az aks create -g rbhlinden -n MyManagedCluster --node-count 2 –kubernetes-version 1.23.3
+#WarningResource provider 'Microsoft.ContainerService' used by this operation is not registered. We are registering for you. 
+az provider register -n “Microsoft.Container.Service”
+
+az account list-locations -o table
+
+az aks get-credentials --name MyManagedCluster -g rbhlinden
+#This command will generate a config file in $HOME/.kube/config
+#config has → server: https://mymanagedc-rbhlinden-b5cfc9-dcfc5192.hcp.eastus.azmk8s.io:443
+#This config file contains 4 main things
+#   → cluster: certificate-authority-data
+#   → user: client-certificate-data
+#   → user: client-key-data
+#   → user: token
+####IMPORTANT: This command also enable the usage of kubectl as it refers to the “config” file “.kube”
+
+az aks upgrade → Used to upgrade the cluster (cp component)
+az aks update → Used to set autoscaling and min and max node count
+
+az aks update -g rbhlinden -n MyManagedCluster --enable-cluster-autoscaler --min-count 1 --max-count 2

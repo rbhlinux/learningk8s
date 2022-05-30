@@ -1,0 +1,51 @@
+Spec is used to declare the desired state and characteristics of the object
+Spec has 3 important subfields, namely:
+	1) Replicas
+		spec:
+  replicas: 3
+		
+	2) Selector
+		selector:
+    matchLabels:
+      app: nginx
+		
+	3) Template
+		template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - image: nginx
+          name: nginx
+		
+		From <https://devopscube.com/kubernetes-deployment-tutorial/> 
+		
+Kubernetes Objects: 
+	componentstatuses
+configmaps
+daemonsets
+deployments
+events
+endpoints
+horizontalpodautoscalers
+ingress
+jobs
+limitranges
+namespaces
+nodes
+pods
+persistentvolumes
+persistentvolumeclaims
+resourcequotas
+replicasets
+replicationcontrollers
+serviceaccounts
+Services
+	
+Metadata:
+	labels
+name
+namespace
+annotations
+

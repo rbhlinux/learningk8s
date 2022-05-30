@@ -1,0 +1,2 @@
+1. Cant understand right now:         A deployment should have only stateless services. Any application that requires state management should be deployed as a Kubernetes StatefulSet.
+Unable to check access logs for nginx in 2 different pods
